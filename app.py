@@ -1,7 +1,7 @@
 # "CONVERT TYPES"
 
-birth_year = input('birth year: ')
-# we need to convert the type from 'str' to 'int' for birth_year
-age = 2019-int(birth_year)
-print('my age! ' +str(age))
+weight_lbs = input('please enter your weight (lbs? ')
+print("weight (lbs) ="+weight_lbs)
+weight_kgs = float(weight_lbs) * 0.45
+print("weight (kgs) =" +str(weight_kgs))
 
