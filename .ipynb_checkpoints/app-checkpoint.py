@@ -6,4 +6,9 @@ weight_kgs = float(weight_lbs) * 0.45
 print("weight (kgs) =" +str(weight_kgs))
 
 #%%
-print('test')
+print('hello')
+print('world')
+print('rajesh')
+print(2*3)
+
+print(5*5)
