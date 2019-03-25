@@ -1,0 +1,6 @@
+
+birth_year = input('please enter your date of birth? ')
+age = 2019 - int(birth_year)
+print(age)
+
+print('rajesh')

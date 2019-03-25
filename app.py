@@ -1,9 +1,26 @@
-# "CONVERT TYPES"
-
-weight_lbs = input('please enter your weight (lbs? ')
-print("weight (lbs) ="+weight_lbs)
-weight_kgs = float(weight_lbs) * 0.45
-print("weight (kgs) =" +str(weight_kgs))
+# TYPE CONVERSION
 
 #%%
-print('test')
+birth_year = input('enter your date of birth? ')
+age = 2019 - int(birth_year)
+print(age)
+
+
+
+
+#%%
+print('rajesh')
+birth_year = input('dob')
+age = 2019- int(birth_year)
+print(age)
+
+
+
+#%%
+birth_year= input('dob')
+age = 2019-int(birth_year)
+print(age)
+
+
+
+#%%
