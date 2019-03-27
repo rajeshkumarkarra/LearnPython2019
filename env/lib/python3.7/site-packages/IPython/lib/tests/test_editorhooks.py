@@ -1,10 +1,6 @@
 """Test installing editor hooks"""
 import sys
-
-try:
-    import mock
-except ImportError:
-    from unittest import mock
+from unittest import mock
 
 import nose.tools as nt
 
@@ -18,6 +14,7 @@ def test_install_editor():
             'args': args,
             'kwargs': kwargs,
         })
+        return mock.MagicMock(**{'wait.return_value': 0})
     editorhooks.install_editor('foo -l {line} -f {filename}', wait=False)
     
     with mock.patch('subprocess.Popen', fake_popen):

@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/rajesh/anaconda3/envs/my_env/bin/python",
+    "python.pythonPath": "env/bin/python",
     "python.linting.pylintEnabled": true,
     "python.dataScience.jupyterServerURI": "http://localhost:8888/?token=2a17defc7245ee967525bd8a31cad54dc81e8c63904edd68"
 }

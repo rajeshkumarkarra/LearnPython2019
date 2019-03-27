@@ -16,8 +16,6 @@ Utilities for timing code execution.
 
 import time
 
-from .py3compat import xrange
-
 #-----------------------------------------------------------------------------
 # Code
 #-----------------------------------------------------------------------------
@@ -60,13 +58,13 @@ try:
         return resource.getrusage(resource.RUSAGE_SELF)[:2]
 except ImportError:
     # There is no distinction of user/system time under windows, so we just use
-    # time.clock() for everything...
-    clocku = clocks = clock = time.clock
+    # time.perff_counter() for everything...
+    clocku = clocks = clock = time.perf_counter
     def clock2():
         """Under windows, system CPU time can't be measured.
 
-        This just returns clock() and zero."""
-        return time.clock(),0.0
+        This just returns perf_counter() and zero."""
+        return time.perf_counter(),0.0
 
     
 def timings_out(reps,func,*args,**kw):
@@ -89,7 +87,7 @@ def timings_out(reps,func,*args,**kw):
         out = func(*args,**kw)
         tot_time = clock()-start
     else:
-        rng = xrange(reps-1) # the last time is executed separately to store output
+        rng = range(reps-1) # the last time is executed separately to store output
         start = clock()
         for dummy in rng: func(*args,**kw)
         out = func(*args,**kw)  # one last time

@@ -1,5 +1,4 @@
-#!/home/rajesh/Documents/GitHub/LearnPython2019/env/bin/python
-
+#!/home/rajesh/Documents/GitHub/LearnPython2019/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
