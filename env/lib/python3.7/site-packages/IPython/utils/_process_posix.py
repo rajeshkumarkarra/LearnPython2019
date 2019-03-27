@@ -13,7 +13,6 @@ This file is only meant to be imported by process.py, not by end-users.
 #-----------------------------------------------------------------------------
 # Imports
 #-----------------------------------------------------------------------------
-from __future__ import print_function
 
 # Stdlib
 import errno
@@ -37,7 +36,7 @@ def _find_cmd(cmd):
 
     path = sp.Popen(['/usr/bin/env', 'which', cmd],
                     stdout=sp.PIPE, stderr=sp.PIPE).communicate()[0]
-    return py3compat.bytes_to_str(path)
+    return py3compat.decode(path)
 
 
 class ProcessHandler(object):

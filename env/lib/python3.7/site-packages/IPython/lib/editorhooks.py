@@ -4,7 +4,6 @@ They should honor the line number argument, at least.
 
 Contributions are *very* welcome.
 """
-from __future__ import print_function
 
 import os
 import pipes
@@ -30,7 +29,7 @@ def install_editor(template, wait=False):
     template : basestring
         run_template acts as a template for how your editor is invoked by
         the shell. It should contain '{filename}', which will be replaced on
-        invokation with the file name, and '{line}', $line by line number
+        invocation with the file name, and '{line}', $line by line number
         (or 0) to invoke the file with.
     wait : bool
         If `wait` is true, wait until the user presses enter before returning,
@@ -54,7 +53,7 @@ def install_editor(template, wait=False):
         if sys.platform.startswith('win'):
             cmd = shlex.split(cmd)
         proc = subprocess.Popen(cmd, shell=True)
-        if wait and proc.wait() != 0:
+        if proc.wait() != 0:
             raise TryNext()
         if wait:
             py3compat.input("Press Enter when done editing:")
@@ -97,7 +96,7 @@ def idle(exe=u'idle'):
         import idlelib
         p = os.path.dirname(idlelib.__filename__)
         # i'm not sure if this actually works. Is this idle.py script
-        # guarenteed to be executable?
+        # guaranteed to be executable?
         exe = os.path.join(p, 'idle.py')
     install_editor(exe + u' {filename}')
 

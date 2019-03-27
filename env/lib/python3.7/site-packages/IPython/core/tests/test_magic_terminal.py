@@ -2,24 +2,18 @@
 
 Needs to be run by nose (to make ipython session available).
 """
-from __future__ import absolute_import
 
 #-----------------------------------------------------------------------------
 # Imports
 #-----------------------------------------------------------------------------
 
 import sys
+from io import StringIO
 from unittest import TestCase
 
 import nose.tools as nt
 
 from IPython.testing import tools as tt
-from IPython.utils.py3compat import PY3
-
-if PY3:
-    from io import StringIO
-else:
-    from StringIO import StringIO
 
 #-----------------------------------------------------------------------------
 # Globals
@@ -57,8 +51,6 @@ def check_cpaste(code, should_fail=False):
     finally:
         sys.stdin = stdin_save
 
-PY31 = sys.version_info[:2] == (3,1)
-
 def test_cpaste():
     """Test cpaste magic"""
 
@@ -77,13 +69,8 @@ def test_cpaste():
                       ],
 
              'fail': ["1 + runf()",
+                      "++ runf()",
              ]}
-    
-    # I don't know why this is failing specifically on Python 3.1. I've
-    # checked it manually interactively, but we don't care enough about 3.1
-    # to spend time fiddling with the tests, so we just skip it.
-    if not PY31:
-        tests['fail'].append("++ runf()")
 
     ip.user_ns['runf'] = runf
 

@@ -15,17 +15,7 @@ Authors:
 import os
 import sys
 import warnings
-try:
-    from shutil import get_terminal_size as _get_terminal_size
-except ImportError:
-    # use backport on Python 2
-    from backports.shutil_get_terminal_size import get_terminal_size as _get_terminal_size
-
-from . import py3compat
-
-#-----------------------------------------------------------------------------
-# Code
-#-----------------------------------------------------------------------------
+from shutil import get_terminal_size as _get_terminal_size
 
 # This variable is part of the expected API of the module:
 ignore_termtitle = True
@@ -93,7 +83,7 @@ elif sys.platform == 'win32':
 
             try:
                 # Cannot be on network share when issuing system commands
-                curr = py3compat.getcwd()
+                curr = os.getcwd()
                 os.chdir("C:")
                 ret = os.system("title " + title)
             finally:
